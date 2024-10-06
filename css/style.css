@@ -55,3 +55,27 @@ nav {
 .icons a {
     color: #000;
 }
+
+/*-*/
+
+.abas {
+    width: 100%;
+    height: 40px;
+    background-color: #b2e5d6;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: large;
+    font-family: "Poppins", sans-serif;
+}
+
+.abas a{
+    text-decoration: none;
+    color: #000000;
+}
+
+.poppins-extralight {
+    font-family: "Poppins", sans-serif;
+    font-weight: 200;
+    font-style: normal;
+}
