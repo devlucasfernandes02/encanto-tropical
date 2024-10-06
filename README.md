@@ -1,2 +1,2 @@
-# encanto-tropical
+# Encanto-tropical
 Ecommerce Encanto Tropical
