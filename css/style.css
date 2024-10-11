@@ -7,6 +7,7 @@
 }
 
 body {
+    font-family: 'Poppins', sans-serif;
     width: 100dvw;
     height: 100dvh;
 }
@@ -23,6 +24,7 @@ nav {
     display: flex;
     justify-content: space-around;
     align-items: center;
+    width: 100%
 }
 
 .login-links button {
@@ -58,10 +60,11 @@ footer{
 }
 
 .search input {
-    width: 550px;
+    width: 100%;
+    max-width: 550px;
     padding: 5px 8px;
     border: 1px solid rgba(0, 0, 0, 0.623);
-    margin-left: 150px;
+    margin-left: 20px;
 }
 
 .search span {
@@ -73,7 +76,7 @@ footer{
 
 .menu-icons {
     display: flex;
-    gap: 60px;
+    gap: 20px;
 }
 
 .tag-icons a {
@@ -88,7 +91,7 @@ footer{
     color: #000;
 }
 
-/*-*/
+/* Navegação */
 
 .abas {
     width: 100%;
