@@ -7,6 +7,10 @@
     font-family: "Poppins";
 }
 
+html {
+    overflow-x: hidden;
+  }
+
 body {
     font-family: 'Poppins', sans-serif;
     width: 100dvw;
@@ -14,19 +18,34 @@ body {
 }
 
 header {
-    background-color: #F6E1F6;
+    background-color: #fff;
     display: flex;
     align-items: center;
     padding-top: 20px;
     flex-flow: column wrap;
 }
 
+h2 {
+    text-align: center;
+    font-size: 2em;
+    background-color: #B2E5D6;
+    font-weight: normal;
+}
+
 .menu {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    width: 100%;
+    width: 100dvw;
     padding-bottom: 10px;
+    position: fixed;
+    top: 0;
+    background-color: #F6E1F6;
+    z-index: 1000;
+}
+
+.menu .logo {
+    padding-top: 20px;
 }
 
 .search {
@@ -70,7 +89,7 @@ a {
 .menu-secundario {
     background-color: #B2E5D6;
     width: 100%;
-    padding: 5px 7%;
+    padding: 130px 7% 5px 7%;
     display: flex;
     gap: 260px;
 }
@@ -85,9 +104,29 @@ a {
     width: 100%;
     padding: 5px 5%;
     display: flex;
+    overflow: hidden;
+    white-space: nowrap;
+    box-sizing: border-box;
     gap: 163px;
     font-size: 0.8em;
 }
+
+.barra-anuncio p {
+    cursor: pointer;
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(100%) ;
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.barra-anuncio {
+    animation: marquee 30s linear infinite; /* 15 segundos de animação contínua */
+  }
 
 .hero {
     display: relative;
@@ -97,16 +136,16 @@ a {
     overflow: hidden;
 }
 
-.carrosel-container {
+.carrossel-container {
     display: flex;
     transition: transform 0.5s ease-in-out;
 }
 
-.carrosel {
+.carrossel {
     min-width: 100%;
 }
 
-.carrosel img {
+.carrossel img {
   height: 100%;
   object-fit: cover;
 }
