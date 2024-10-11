@@ -83,11 +83,50 @@ a {
 .barra-anuncio {
     background-color: #fff;
     width: 100%;
-    padding: 0 5%;
+    padding: 5px 5%;
     display: flex;
     gap: 163px;
     font-size: 0.8em;
 }
 
+.hero {
+    display: relative;
+    max-width: 1440px;
+    margin: 20px auto;
+    width: 100%;
+    overflow: hidden;
+}
 
-/* Navegação */
+.carrosel-container {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carrosel {
+    min-width: 100%;
+}
+
+.carrosel img {
+  height: 100%;
+  object-fit: cover;
+}
+
+button.prev, button.next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+button.prev {
+    left: 10px;
+  }
+  
+  button.next {
+    right: 10px;
+  }

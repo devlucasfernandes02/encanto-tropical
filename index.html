@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-
+    <script src="js/scripts.js" defer></script>
 </head>
 <body>
     <header>
@@ -21,19 +21,19 @@
                 <img src="assets/img/logo.svg" width="110px" alt="Logo Encanto Tropical">
             </div>
             <div class="search">
-                <label for="">
+                <label for="search">
                     <input type="text" placeholder="Pesquisar por..." >
                     <span class="material-symbols-outlined" >search</span>
                 </label>
             </div>
             <nav class="menu-icons">
                 <div class="tag-icons">
-                    <a href="#">
+                    <a href="pages/loginUser.html" target="self" rel="next">
                         <p>Olá, faça o login ou cadastre-se</p>
                     </a>
                 </div>
                 <div class="icons">
-                    <a href="#"><span class="material-symbols-outlined">person</span></a>
+                    <a href="pages/loginADM.html" target="_self" rel="next"><span class="material-symbols-outlined">person</span></a>
                     <a href="#"><span class="material-symbols-outlined">contact_support</span></a>
                     <a href="#"><span class="material-symbols-outlined">shopping_bag</span></a>
                     <a href="#"><span class="material-symbols-outlined">language</span></a>
@@ -58,12 +58,16 @@
     </header>
     <main>
         <section class="hero">
-            <div class="carrosel">
-                <img src="" alt="">
+            <div class="carrosel-container">
+                <div class="carrosel">
+                    <img src="assets/img/banner01.jpeg" width="1440px" alt="Primeiro banner rotativo">
+                </div>
+                <div class="carrosel">
+                    <img src="assets/img/banner02.jpg" alt="Segundo banner rotativo">
+                </div>
             </div>
-            <div class="carrosel">
-                <img src="" alt="">
-            </div>
+            <button class="prev">&lt;</button>
+            <button class="next">&gt;</button>
         </section>
      </section>
      

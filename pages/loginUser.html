@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Encanto Tropical - Login</title>
-    <link rel="stylesheet" href="css/styleLogin.css">
+    <link rel="stylesheet" href="../css/styleLogin.css">
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     
@@ -18,15 +18,16 @@
     <header>
         <nav class="menu">
             <div class="logo">
-                <img src="assets/img/logo.svg" width="100px" alt="Logo Encanto Tropical">
+                <a href="../index.html" rel="prev">
+                    <img src="../assets/img/logo.svg" width="100px" alt="Logo Encanto Tropical">
+                </a>
             </div>
         </nav>
     </header>
     <main>
         <section id="login">
             <div id="formulario">
-                <h1>Olá, Encanto Tropical!</h1>
-                <p>Acesse sua conta para gerenciar sua loja.</p>
+                <h1>Iniciar Sessão</h1>
             </div>
             <form class="login-form">
                 <div class="input-group">
@@ -40,7 +41,10 @@
                 <div class="forgot-password">
                     <a href="#">Esqueceu a senha?</a>
                 </div>
-                <button type="submit">Acessar a minha loja</button>
+                <button type="submit">Login</button>
+                <p>OU</p>
+                <button type="submit">Entrar com o Google</button>
+                <p>Ainda não possui conta? <a href="#">Cadastre-se</a></p>
             </form>
         </section>
     </main>
