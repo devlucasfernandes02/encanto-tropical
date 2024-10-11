@@ -188,7 +188,6 @@ a:hover {
 .menu-secundario {
     background-color: #B2E5D6;
     width: 100vw;
-    
 }
 
 .menu-secundario li {
@@ -236,7 +235,7 @@ a:hover {
     margin: 20px auto;
     width: 100%;
     height: auto;
-    max-width: 1440px;
+    max-width: 1360px;
     overflow: hidden;
     cursor: pointer;
 }
@@ -265,7 +264,7 @@ a:hover {
 
 button.prev, button.next {
     position: absolute;
-    top: 40%;
+    top: 60%;
     transform: translateY(-50%);
     background-color: rgba(0, 0, 0, 0.5);
     border: none;
@@ -312,7 +311,7 @@ button.prev {
 
   .carrossel-imagens {
     display: flex;
-    padding: 40px 6%;
+    padding: 30px 6%;
     align-items: center;
     justify-content: space-around;
   }
@@ -415,16 +414,23 @@ button.prev {
         margin-right: 20px;
     }
 
-    .search, .tag-icons, #icon-suporte, #icon-person, #icon-bag, #icon-language {
+    .search, .tag-icons, .icon-suporte, #icon-person, #icon-bag, #icon-language  {
         display: none;
     }
 
     .hero {
         max-width: 720px;
         margin-top: 10px;
-        
     }
 
+    button.prev, button.next {
+        top: 40%;
+    }
+
+    .carrossel-imagens {
+        flex-direction: column;
+    }
+    
     .banner-oferta {
         max-width: 720px;
 
@@ -433,11 +439,24 @@ button.prev {
     .banner-oferta img {
         width: 100%;
     }
+
+    footer {
+        justify-content: center;
+        align-items: left;
+        font-size: 0.9em;
+    }
     
+    .copyright {
+        margin-top: 20px;
+    }
 
 }
 
 @media screen and (max-width:480px) {
+    h2 {
+        font-size: 1.8em;
+    }
+    
     .btn-abrir-menu{
         display: block;
     }
@@ -452,6 +471,15 @@ button.prev {
         padding: 5px 4%;
     }
 
+    .icons-mobile span {
+        font-size: 24px;
+    }
+
+    .icons-mobile  {
+        font-size: 0.8em;
+        gap: 10px;
+    }
+
     .menu-secundario {
         display: none;
     }
@@ -464,7 +492,7 @@ button.prev {
         margin-right: 20px;
     }
 
-    .search, .tag-icons, #icon-suporte, #icon-person, #icon-bag, #icon-language {
+    .search, .tag-icons, .icon-suporte, #icon-person, #icon-bag, #icon-language {
         display: none;
     }
 
@@ -474,6 +502,39 @@ button.prev {
         
     }
 
+    button.prev, button.next {
+        top: 35%;
+        padding: 0px;
+    }
+
+    button.prev {
+        left: 5px;
+    }
+      
+      button.next {
+        right: 5px;
+    }
+
+    .benefit {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    
+    .funcionalidades a  {
+        font-size: 0.5em;
+        text-align: center;
+       
+    }
+
+    .benefit img {
+        width: 20px;
+    }
+
+    .carrossel-imagens {
+        flex-direction: column;
+    }
+
+
     .banner-oferta {
         max-width: 340px;
 
@@ -482,6 +543,24 @@ button.prev {
     .banner-oferta img {
         width: 100%;
     }
+
+    footer {
+        justify-content: center;
+        align-items: left;
+        font-size: 0.7em;
+        padding: 20px 3%;
+    }
+
+    
+    .info span {
+        font-size: 14px;
+       
+    }
+    
+    .copyright {
+        margin-top: 20px;
+    }
+
     
 }
 
