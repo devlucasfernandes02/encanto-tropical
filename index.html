@@ -18,13 +18,44 @@
     <header>
         <nav class="menu">
             <div class="menu-primario">
+                <div class="btn-abrir-menu">
+                    <span class="material-symbols-outlined">menu</span>
+                </div>
+                <div class="menu-mobile">
+                    <div class="btn-fechar">
+                        <span class="material-symbols-outlined">close</span>
+                    </div>
+                    <nav class="nav-mobile">
+                        <ul>
+                            <li>
+                                <a href="">Início</a>
+                                <a href="">Produtos</a>
+                                <a href="">Destaques</a>
+                                <a href="">Sobre nós</a>
+                                <a href="">Contato</a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <div class="icons-mobile">
+                        <a href="pages/loginADM.html" target="_self" rel="next"><span class="material-symbols-outlined">person</span></a>
+                        <a href="#"><span class="material-symbols-outlined">contact_support</span></a>
+                        <a id="icon-bag" href="#"><span class="material-symbols-outlined">shopping_bag</span></a>
+                        <a id="icon-language" href="#"><span class="material-symbols-outlined">language</span></a>
+                        <a href="pages/loginUser.html" target="_self" rel="next">
+                            <p>Olá, faça o login ou cadastre-se</p>
+                        </a>
+                    </div>
+                </div>
+                <div class="overlay-menu">
+
+                </div>
                 <div class="logo">
                     <a href="index.html">
                         <img src="assets/img/logo.svg" width="110px" alt="Logo Encanto Tropical">
                     </a>
                 </div>
                 <div class="search">
-                    <label for="search">
+                    <label for="">
                         <input type="text" placeholder="Pesquisar por..." >
                         <span class="material-symbols-outlined" >search</span>
                     </label>
@@ -36,19 +67,23 @@
                         </a>
                     </div>
                     <div class="icons">
-                        <a href="pages/loginADM.html" target="_self" rel="next"><span class="material-symbols-outlined">person</span></a>
-                        <a href="#"><span class="material-symbols-outlined">contact_support</span></a>
+                        <a id="icon-person" href="pages/loginADM.html" target="_self" rel="next"><span class="material-symbols-outlined">person</span></a>
+                        <a id="icon-suporte" href="#"><span class="material-symbols-outlined">contact_support</span></a>
                         <a href="#"><span class="material-symbols-outlined">shopping_bag</span></a>
                         <a href="#"><span class="material-symbols-outlined">language</span></a>
                     </div>
                 </div>
             </div>
             <div class="menu-secundario">
-               <a href="">Início</a>
-               <a href="">Produtos</a>
-               <a href="">Destaques</a>
-               <a href="">Sobre nós</a>
-               <a href="">Contato</a>
+               <ul>
+                   <li>
+                       <a href="">Início</a>
+                       <a href="">Produtos</a>
+                       <a href="">Destaques</a>
+                       <a href="">Sobre nós</a>
+                       <a href="">Contato</a>
+                   </li>
+               </ul>
             </div>
             <div class="barra-anuncio">
                 <p>Barra de Anúncios</p>
@@ -64,10 +99,10 @@
         <section class="hero">
             <div class="carrossel-container">
                 <div class="carrossel">
-                    <img src="assets/img/banner01.jpeg" width="1440px" alt="Primeiro banner rotativo">
+                    <img src="assets/img/banner01.jpeg"  alt="Primeiro banner rotativo">
                 </div>
                 <div class="carrossel">
-                    <img src="assets/img/banner02.jpg" width="1440px" alt="Segundo banner rotativo">
+                    <img src="assets/img/banner02.jpg" alt="Segundo banner rotativo">
                 </div>
             </div>
             <button class="prev">&lt;</button>
