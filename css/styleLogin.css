@@ -87,24 +87,23 @@ button {
 
 footer {
     background-color: #B2E5D6;
-    padding: 15px 0 15px 100px;
-}
-
-.copyright {
-    text-align: center;
-}
-
-.info {
     display: flex;
-    align-items: center;
-}
+    flex-flow: column wrap;
+    justify-content: center;
+    padding: 20px 7% 0 7%;
+  }
 
-footer p {
-    margin-right: 10px;
-    font-weight: 200;
-    font-size: 15px;
-    margin: 1px 0;
-}
+  footer p {
+    font-size: 1em;
+  }
+
+  .info span {
+    margin: 10px;
+  }
+
+  .copyright {
+    text-align: center;
+  }
 
 form p {
     margin: 5px;
