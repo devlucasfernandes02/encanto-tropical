@@ -401,6 +401,10 @@ button.prev {
         padding: 5px 4%;
     }
 
+    .icons-mobile  {
+        gap: 20px;
+    }
+
     .menu-secundario {
         display: none;
     }
