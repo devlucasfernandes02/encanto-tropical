@@ -106,3 +106,7 @@ footer p {
     margin: 1px 0;
 }
 
+form p {
+    margin: 5px;
+    font-size: 15px;
+}
