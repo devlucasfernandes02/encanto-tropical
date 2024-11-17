@@ -12,91 +12,193 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-
+    <script src="js/scripts.js" defer></script>
 </head>
 <body>
     <header>
         <nav class="menu">
-            <div class="logo">
-                <img src="assets/img/logo.svg" width="100px" alt="Logo Encanto Tropical">
-            </div>
-            <div class="search">
-                <label for="">
-                    <input type="text" placeholder="Pesquise aqui..." ><span class="material-symbols-outlined" >search</span>
-                </label>
-            </div>
-            <div class="menu-icons">
-                <div class="tag-icons">
-                    <a href="#">
-                        <p>Olá, faça o login ou cadastre-se</p>
+            <div class="menu-primario">
+                <div class="btn-abrir-menu">
+                    <span class="material-symbols-outlined">menu</span>
+                </div>
+                <div class="menu-mobile">
+                    <div class="btn-fechar">
+                        <span class="material-symbols-outlined">close</span>
+                    </div>
+                    <nav class="nav-mobile">
+                        <ul>
+                            <li>
+                                <a href="">Início</a>
+                                <a href="">Produtos</a>
+                                <a href="">Destaques</a>
+                                <a href="">Sobre nós</a>
+                                <a href="">Contato</a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <div class="icons-mobile">
+                        <a href="pages/loginADM.html" target="_self" rel="next"><span class="material-symbols-outlined">person</span></a>
+                        <a class="icon-suporte" href="#"><span class="material-symbols-outlined">contact_support</span></a>
+                        <a id="icon-bag" href="#"><span class="material-symbols-outlined">shopping_bag</span></a>
+                        <a id="icon-language" href="#"><span class="material-symbols-outlined">language</span></a>
+                        <a href="pages/loginUser.html" target="_self" rel="next">
+                            <p>Olá, faça o login ou cadastre-se</p>
+                        </a>
+                    </div>
+                </div>
+                <div class="overlay-menu">
+
+                </div>
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="assets/img/logo.svg" width="110px" alt="Logo Encanto Tropical">
                     </a>
                 </div>
-                <div class="icons">
-                    <a href="#"><span class="material-symbols-outlined">person</span></a>
-                    <a href="#"><span class="material-symbols-outlined">contact_support</span></a>
-                    <a href="#"><span class="material-symbols-outlined">shopping_bag</span></a>
-                    <a href="#"><span class="material-symbols-outlined">language</span></a>
+                <div class="search">
+                    <label for="">
+                        <input type="text" placeholder="Pesquisar por..." >
+                        <span class="material-symbols-outlined" >search</span>
+                    </label>
+                </div>
+                <div class="menu-icons">
+                    <div class="tag-icons">
+                        <a href="pages/loginUser.html" target="_self" rel="next">
+                            <p>Olá, faça o login ou cadastre-se</p>
+                        </a>
+                    </div>
+                    <div class="icons">
+                        <a id="icon-person" href="pages/loginADM.html" target="_self" rel="next"><span class="material-symbols-outlined">person</span></a>
+                        <a class="icon-suporte" href="#"><span class="material-symbols-outlined">contact_support</span></a>
+                        <a href="#"><span class="material-symbols-outlined">shopping_bag</span></a>
+                        <a href="#"><span class="material-symbols-outlined">language</span></a>
+                    </div>
                 </div>
             </div>
+            <div class="menu-secundario">
+               <ul>
+                   <li>
+                       <a href="">Início</a>
+                       <a href="">Produtos</a>
+                       <a href="">Destaques</a>
+                       <a href="">Sobre nós</a>
+                       <a href="">Contato</a>
+                   </li>
+               </ul>
+            </div>
+            <div class="barra-anuncio">
+                <p>Barra de Anúncios</p>
+                <p>Barra de Anúncios</p>
+                <p>Barra de Anúncios</p>
+                <p>Barra de Anúncios</p>
+                <p>Barra de Anúncios</p>
+                <p>Barra de Anúncios</p>
+            </div>
         </nav>
-        <!-- div adcionada para ser a navegação entre as páginas que compõem o site -->
-        <div class="abas">
-            <a href="#"><span>Início</span></a>
-            <a href="#"><span>Produtos</span></a>
-            <a href="#"><span>Destaques</span></a>
-            <a href="#"><span>Sobre Nós</span></a>
-            <a href="#"><span>Contato</span></a>
-            <div class=""Login-links">
-            <button id="login-adm">Login Adm</button>
-        <button id="login-usuario">Login Usuario</button>
-    </div>
-        </div>
     </header>
     <main>
-        <section class="banner">
-            <img src="assets/img/banner.jpg" alt="Flores Tropicais - Banner Principal">
+        <section class="hero">
+            <div class="carrossel-container">
+                <div class="carrossel">
+                    <img src="assets/img/banner01.jpeg"  alt="Primeiro banner rotativo">
+                </div>
+                <div class="carrossel">
+                    <img src="assets/img/banner02.jpg" alt="Segundo banner rotativo">
+                </div>
+            </div>
+            <button class="prev">&lt;</button>
+            <button class="next">&gt;</button>
         </section>
-        <section> class="promocoes"
-            <h2>Promocoes</h2>
-        <div class="Produtos">
-            <!--Produtos em promoção-->
+        
+        <section class="funcionalidades">
+            <article class="benefit">
+              <img src="assets/icons/icone-entrega.png" alt="Ícone de Entrega">
+              <a href="#">Entrega em até 3h para todo o Brasil</a>
+            </article>
+          
+            <article class="benefit">
+              <img src="assets/icons/icone-clube.png" alt="Ícone Clube de Assinatura">
+              <a href="#">Clube de assinatura</a>
+            </article>
+          
+            <article class="benefit">
+              <img src="assets/icons/icone-agendar.png" alt="Ícone de Agendamento">
+              <a href="#">Agende o horário da entrega</a>
+            </article>
+          
+            <article class="benefit">
+              <img src="assets/icons/icone-wpp.png" alt="Ícone WhatsApp">
+              <a href="#">Compre pelo Whatsapp</a>
+            </article>
+        </section>
+          
+     
+        <section class="promocoes">
+            <h2>
+                Promoções
+            </h2>
+            <div class="carrossel-imagens">
+                <div>
+                    <img src="assets/img/image-1.png" alt="">
+                </div>
+                <div>
+                    <img src="assets/img/image-2.png" alt="">
+                </div>
+                <div>
+                    <img src="assets/img/image-3.png" alt="">
+                </div>
+                <div>
+                    <img src="assets/img/image-4.png" alt="">
+                </div>
+            </div>
+        </section>
 
-        </div>
-     </section>
-     <section class="mais-vendidos">
-        <h2>Mais vendidos</h2>
-        <div class="produtos">
-            <!--Produtos mais vendidos-->
-
-        </div>
-     </section>
-     <section class="ofertas">
-        <h2>Ofertas de Época</h2>
-        <div class="produtos">
-            <!--Ofertas de Época-->
-
-        </div>
-     </section> 
+        <section class="mais-vendidos">
+            <h2>
+                Mais vendidos
+            </h2>
+            <div class="carrossel-imagens">
+                <div>
+                    <img src="assets/img/image-1.png" alt="">
+                </div>
+                <div>
+                    <img src="assets/img/image-2.png" alt="">
+                </div>
+                <div>
+                    <img src="assets/img/image-3.png" alt="">
+                </div>
+                <div>
+                    <img src="assets/img/image-4.png" alt="">
+                </div>
+            </div>
+            <div class="banner-oferta">
+                <img src="assets/img/banner03.jpeg" width="1440px" alt="">
+            </div>
+        </section>
+        <section class="ofertas">
+            <h2>Ofertas de Época</h2>
+            <div class="carrossel-imagens">
+                <div>
+                    <img src="assets/img/image-1.png" alt="">
+                </div>
+                <div>
+                    <img src="assets/img/image-2.png" alt="">
+                </div>
+                <div>
+                    <img src="assets/img/image-3.png" alt="">
+                </div>
+                <div>
+                    <img src="assets/img/image-4.png" alt="">
+                </div>
+            </div>
+        </section> 
 
     </main>
     
     <footer>
-        <p> Rua Encanto das flores, Aldeia, Recife-Pe</p>
-        <p>Email: ecantotropical@flores.com.br | Tel: (81) 99999-9999</p>
-        <p>Copyright Encanto Tropical ® 2024. Todos os direitos reservados.</p>
+        <p class="info"><span class="material-symbols-outlined">location_on</span>Rua Encanto das Flores, número 1, Bairro Aldeia, Recife - PE</p>
+        <p class="info"><span class="material-symbols-outlined">mail</span>encantotropical@flores.com.br</p>
+        <p class="info"><span class="material-symbols-outlined">call</span>3912-7777/991823-7645</p>
+        <p class="copyright">Copyright Encanto Tropical - 12345678000190 2024 &copy; Todos os direitos reservados.</p>
     </footer>
-
-    <!-- Modal para login de administrador-->
-    <div id="modal-adm" class=""modal">
-    <div class="modal-content">
-        <h2>Iniciar Sessão</h2>
-        <input type="email" placeholder="seuemail@Hotmail.com">
-        <input type="password" placeholder="Senha">
-        <button>Login</button>
-        <Button>Entrar com google</Button>
-    </div>
-</div>
-
-<script src="scripts.js"></script>
 </body>
 </html>
