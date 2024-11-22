@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EncantoTropical-conta</title>
+    <script src="../js/scriptCadastro.js" defer></script>
+    <link rel="stylesheet" href="../css/stylecadastro.css">
+</head>
+<body>
+    <header>
+        <nav class="menu">
+            <div class="logo">
+                <a href="../index.html" rel="prev">
+                    <img src="../assets/img/logo.svg" width="110px" alt="Logo Encanto Tropical">
+                </a>
+            </div>
+        </nav>
+    </header> 
+    <main>
+        <section id="conta">  
+           <div id="formulario">
+               <h1>Criar conta</h1>
+           </div>
+           <form id="form" >
+               <div class="input-group">
+               <label for="nome"><span class="material-symbols-outlined">Nome</span></label>
+               <input type="text" id="nome" name="nome" placeholder="Digite o nome completo" required>
+               </div>
+               <div class="input-group">
+                   <label for="email"><span class="material-symbols-outlined">E-mail</span></label>
+                   <input type="email" id="email" placeholder="seuemail@hotmail.com" required>
+               </div>
+               <div class="input-group">
+                   <label for="password"><span class="material-symbols-outlined">Criar Senha</span></label>
+                   <input type="password" id="password1" name="Senha" placeholder="***********" required>
+               </div>
+               <div class="input-group">
+                   <label for="password"><span class="material-symbols-outlined">Senha</span></label>
+                   <input type="password" id="password2" placeholder="***********" required>
+               </div>
+               <div class="error" id="errorMsg" style="display: none;">As senhas não são iguais. Tente novamente.</div>
+               <div class="success" id="successMsg" style="display: none;">Cadastro realizado com sucesso!</div>
+               <button type="submit">Cadastre-se</button>
+               <p>Você já tem uma conta? <a href="../pages/loginUser.html">Login</a></p>
+           </form> 
+        </section>
+    </main>
+    <footer>
+        <p class="info"><span class="material-symbols-outlined">location_on</span>Rua Encanto das Flores, número 1, Bairro Aldeia, Recife - PE</p>
+        <p class="info"><span class="material-symbols-outlined">mail</span>encantotropical@flores.com.br</p>
+        <p class="info"><span class="material-symbols-outlined">call</span>3912-7777/991823-7645</p>
+        <p class="copyright">Copyright Encanto Tropical - 12345678000190 2024 &copy; Todos os direitos reservados.</p>
+    </footer>  
+</body>
+</html>
