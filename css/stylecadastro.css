@@ -103,3 +103,7 @@ form p {
     margin: 5px;
     font-size: 15px;
 }
+.error{
+   color: red;
+
+}
