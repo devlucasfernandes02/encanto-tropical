@@ -10,8 +10,8 @@ i18next.init({
           "welcomeMessage": "Welcome to our website!",
           "inicio": "Home", // Tradução de exemplo // Tradução de exemplo
           "produtos": "Products",
-          "destaques": "Highlight",
-          "sobre": "About us",
+          "destaques": "Highlights",
+          "sobre nos": "About us",
           "contatos": "Contacts"
         }
       },
