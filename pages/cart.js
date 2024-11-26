@@ -1,192 +1,96 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const cors = require('cors');
-const app = express();
-const PORT = 3000;
+// Função para obter o carrinho do localStorage ou inicializar um novo array vazio
+function getCarrinho() {
+  return JSON.parse(localStorage.getItem("carrinho")) || [];
+}
 
-app.use(cors());
-app.use(bodyParser.json());
+// Função para salvar o carrinho no localStorage
+function salvarCarrinho(carrinho) {
+  localStorage.setItem("carrinho", JSON.stringify(carrinho));
+}
 
-let cart = [];
-
-// Adicionar produto ao carrinho
-app.post('/cart', (req, res) => {
-  const { id, name, price, quantity } = req.body;
-
-  const existingProduct = cart.find((item) => item.id === id);
-
-  if (existingProduct) {
-    existingProduct.quantity += quantity;
+// Função para adicionar um produto ao carrinho
+function adicionarAoCarrinho(produto) {
+  const carrinho = getCarrinho();
+  
+  // Verifica se o produto já está no carrinho
+  const itemExistente = carrinho.find(item => item.id === produto.id);
+  
+  if (itemExistente) {
+      itemExistente.quantidade += 1; // Se já existir, incrementa a quantidade
   } else {
-    cart.push({ id, name, price, quantity });
+      produto.quantidade = 1; // Caso contrário, adiciona com quantidade 1
+      carrinho.push(produto);
   }
-
-  res.status(201).json({ message: 'Produto adicionado ao carrinho!', cart });
-});
-
-// Listar produtos no carrinho
-app.get('/cart', (req, res) => {
-  res.status(200).json(cart);
-});
-
-// Atualizar quantidade de um produto no carrinho
-app.put('/cart/:id', (req, res) => {
-  const { id } = req.params;
-  const { quantity } = req.body;
-
-  const product = cart.find((item) => item.id === parseInt(id));
-
-  if (product) {
-    product.quantity = quantity;
-    res.status(200).json({ message: 'Quantidade atualizada!', cart });
-  } else {
-    res.status(404).json({ message: 'Produto não encontrado!' });
-  }
-});
-
-// Remover produto do carrinho
-app.delete('/cart/:id', (req, res) => {
-  const { id } = req.params;
-
-  cart = cart.filter((item) => item.id !== parseInt(id));
-  res.status(200).json({ message: 'Produto removido!', cart });
-});
-
-// Limpar carrinho
-app.delete('/cart', (req, res) => {
-  cart = [];
-  res.status(200).json({ message: 'Carrinho limpo!' });
-});
-
-app.listen(PORT, () => {
-  console.log(`Servidor rodando em http://localhost:${PORT}`);
-});
-
-async function addToCart(product) {
-    const response = await fetch('http://localhost:3000/cart', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(product),
-    });
   
-    const data = await response.json();
-    console.log(data.message);
-  }
-
-  const API_URL = 'http://localhost:3000/cart';
-
-async function fetchCart() {
-  const response = await fetch(API_URL);
-  const cart = await response.json();
-  displayCart(cart);
+  salvarCarrinho(carrinho);
+  atualizarQuantidadeCarrinho();
 }
 
-function displayCart(cart) {
-  const cartContainer = document.getElementById('cart-items');
-  cartContainer.innerHTML = '';
+// Função para atualizar o contador de itens no ícone do carrinho
+function atualizarQuantidadeCarrinho() {
+  const carrinho = getCarrinho();
+  const totalItens = carrinho.reduce((total, item) => total + item.quantidade, 0);
+  
+  document.getElementById("icon-bag").innerText = totalItens;
+}
 
-  cart.forEach((item) => {
-    const listItem = document.createElement('li');
-    listItem.textContent = `${item.name} - Quantidade: ${item.quantity} - Preço: R$ ${item.price}`;
-    
-    // Botão para atualizar a quantidade
-    const quantityInput = document.createElement('input');
-    quantityInput.type = 'number';
-    quantityInput.value = item.quantity;
-    quantityInput.addEventListener('change', () => updateQuantity(item.id, quantityInput.value));
+// Função para exibir os produtos no carrinho
+function exibirCarrinho() {
+  const carrinho = getCarrinho();
+  const containerCarrinho = document.getElementById("container-carrinho");
+  containerCarrinho.innerHTML = "";
+  
+  if (carrinho.length === 0) {
+      containerCarrinho.innerHTML = "<p>O carrinho está vazio.</p>";
+      return;
+  }
 
-    // Botão para remover item
-    const removeButton = document.createElement('button');
-    removeButton.textContent = 'Remover';
-    removeButton.onclick = () => removeFromCart(item.id);
-
-    listItem.appendChild(quantityInput);
-    listItem.appendChild(removeButton);
-    cartContainer.appendChild(listItem);
+  carrinho.forEach(item => {
+      const itemElemento = document.createElement("div");
+      itemElemento.classList.add("item-carrinho");
+      itemElemento.innerHTML = `
+          <p>${item.nome}</p>
+          <p>Quantidade: ${item.quantidade}</p>
+          <button onclick="removerDoCarrinho(${item.id})">Remover</button>
+      `;
+      containerCarrinho.appendChild(itemElemento);
   });
 }
 
-async function addToCart(product) {
-  const response = await fetch(API_URL, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(product),
-  });
-  await response.json();
-  fetchCart();
+// Função para remover um item do carrinho
+function removerDoCarrinho(id) {
+  let carrinho = getCarrinho();
+  carrinho = carrinho.filter(item => item.id !== id);
+  
+  salvarCarrinho(carrinho);
+  atualizarQuantidadeCarrinho();
+  exibirCarrinho();
 }
 
-async function updateQuantity(id, quantity) {
-  await fetch(`${API_URL}/${id}`, {
-    method: 'PUT',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ quantity: parseInt(quantity) }),
-  });
-  fetchCart();
+// Exemplo de uso da função de adicionar ao carrinho
+// (chame essa função quando o usuário clicar em um botão "Adicionar ao Carrinho")
+function exemploAdicionarProduto() {
+  const produto = {
+      id: 1,
+      nome: "orquideaencanto",
+      preco: 235.90
+      id: 2,
+      nome: "buquedeflores",
+      preco: 339,90
+      id: 3,
+      nome: "arranjodocealegria",
+      preco: 249,90
+      id: 4,
+      nome: "arranjodocedesejo",
+      preco: 239,90
+      }; 
+  adicionarAoCarrinho(produto);
 }
 
-async function removeFromCart(id) {
-  await fetch(`${API_URL}/${id}`, { method: 'DELETE' });
-  fetchCart();
-}
-
-async function clearCart() {
-  await fetch(API_URL, { method: 'DELETE' });
-  fetchCart();
-}
-
-// Inicializar a visualização do carrinho
-fetchCart();
-
-function calculateTotal(cart) {
-    return cart.reduce((total, item) => total + item.price * item.quantity, 0);
-  }
-  
-  function displayCart(cart) {
-    const cartContainer = document.getElementById('cart-items');
-    cartContainer.innerHTML = '';
-    
-    cart.forEach((item) => {
-      // (exibe itens conforme o exemplo anterior)
-    });
-    
-    const totalContainer = document.createElement('p');
-    totalContainer.textContent = `Total: R$ ${calculateTotal(cart).toFixed(2)}`;
-    cartContainer.appendChild(totalContainer);
-  }
-
-  // Salvar carrinho no localStorage
-function saveCartToLocal(cart) {
-    localStorage.setItem('cart', JSON.stringify(cart));
-  }
-  
-  // Carregar carrinho do localStorage
-  function loadCartFromLocal() {
-    const savedCart = localStorage.getItem('cart');
-    return savedCart ? JSON.parse(savedCart) : [];
-  }
-  
-  async function fetchCart() {
-    let cart = loadCartFromLocal();
-    displayCart(cart);
-    // (opcional) carregar do backend se necessário
-  }
-  function saveCartToLocalStorage(cart) {
-    localStorage.setItem('cart', JSON.stringify(cart));
-  }
-  
-  function loadCartFromLocalStorage() {
-    const savedCart = localStorage.getItem('cart');
-    return savedCart ? JSON.parse(savedCart) : [];
-  }
-  
-  // Ao atualizar o carrinho, salve-o no local storage
-  function updateLocalCart(cart) {
-    saveCartToLocalStorage(cart);
-    displayCart(cart);
-  }
+// Carrega a quantidade de itens no carrinho ao abrir a página
+document.addEventListener("DOMContentLoaded", () => {
+  atualizarQuantidadeCarrinho();
+});
   function notify(message) {
     alert(message);
   }
