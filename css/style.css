@@ -163,6 +163,7 @@ a:hover {
     max-width: 600px;
     padding: 6px 8px;
     border: 1px solid rgba(0, 0, 0, 0.623);
+    outline: none;
 }
 
 .search span {
