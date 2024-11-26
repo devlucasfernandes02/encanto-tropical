@@ -91,21 +91,28 @@ footer {
     flex-flow: column wrap;
     justify-content: center;
     padding: 20px 7% 0 7%;
-  }
+}
 
-  footer p {
+footer p {
     font-size: 1em;
-  }
+}
 
-  .info span {
+.info span {
     margin: 10px;
-  }
+}
 
-  .copyright {
+.copyright {
     text-align: center;
-  }
+}
 
 form p {
     margin: 5px;
     font-size: 15px;
+}
+#errorMsg{
+    color: red;
+ 
+}
+#successMsg{
+    color: green;
 }
