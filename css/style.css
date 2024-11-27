@@ -1,0 +1,571 @@
+@charset "UTF-8";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins";
+}
+
+html {
+    overflow-x: hidden;
+  }
+
+body {
+    font-family: 'Poppins', sans-serif;
+    width: 100vw;
+    height: 100vh;
+}
+
+header {
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    padding-top: 20px;
+    flex-flow: column wrap;
+}
+
+h2 {
+    text-align: center;
+    font-size: 2em;
+    background-color: #B2E5D6;
+    font-weight: normal;
+}
+
+img {
+    cursor: pointer;
+}
+
+a {
+    color: #000;
+}
+
+a:hover {
+  color: #000000c3;
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+   
+}
+
+.menu-primario {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    padding-bottom: 10px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #F6E1F6;
+    z-index: 1000;
+}
+
+.btn-abrir-menu{
+    display: none;
+}
+
+.btn-abrir-menu span {
+    color: #000;
+    font-size: 40px;
+    cursor: pointer;
+}
+
+.menu-mobile {
+    background-color: #F6E1F6;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1001;
+    width: 0%;
+    overflow: hidden;
+    transition: .5s;
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-mobile.abrir-menu {
+    width: 70%;
+}
+
+.menu-mobile.abrir-menu ~ .overlay-menu {
+    display: block;
+}
+
+.btn-fechar {
+    text-align: end;
+    padding: 20px 5%;
+}
+
+.btn-fechar span {
+    font-size: 3em;
+    cursor: pointer;
+}
+
+.nav-mobile li  {
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-mobile nav ul {
+    text-align: left;
+}
+
+.menu-mobile nav ul li a {
+    font-size: 1.4em;
+    font-weight: 300;
+    text-decoration: none;
+    padding: 20px 5%;
+}
+
+.menu-mobile nav ul li a:hover {
+    background-color: #B2E5D6;
+}
+
+.icons-mobile {
+    display: flex;
+    margin-top: auto;
+    padding: 20px 5%;
+}
+
+.icons-mobile span {
+    font-size: 30px;
+}
+
+.overlay-menu {
+    background-color: #000000bd;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 90;
+    display: none;
+}
+
+.menu .logo {
+    padding-top: 20px;
+}
+
+.search {
+    display: flex;
+    position: relative;
+    left: 100px;
+    bottom: 5px;
+}
+
+.search input {
+    width: 600px;
+    max-width: 600px;
+    padding: 6px 8px;
+    border: 1px solid rgba(0, 0, 0, 0.623);
+    outline: none;
+}
+
+.search span {
+    position: relative;
+    left: -45px;
+    top: 7px;
+}
+
+.menu-icons {
+    display: flex;
+    gap: 100px;
+}
+
+
+.tag-icons a p {
+    margin-top: 4px;
+}
+
+.icons span {
+    font-size: 32px;
+}
+
+.menu-secundario {
+    background-color: #B2E5D6;
+    width: 100vw;
+}
+
+.menu-secundario li {
+    padding: 130px 0 5px 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+.menu-secundario a {
+    text-decoration: none;
+    font-size: 1.1em;
+}
+
+.barra-anuncio {
+    background-color: #fff;
+    width: 100%;
+    padding: 5px 5%;
+    display: flex;
+    overflow: hidden;
+    white-space: nowrap;
+    box-sizing: border-box;
+    justify-content: space-around;
+    font-size: 0.8em;
+}
+
+.barra-anuncio p {
+    cursor: pointer;
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(100%) ;
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.barra-anuncio {
+    animation: marquee 30s linear infinite; /* 15 segundos de animação contínua */
+  }
+
+.hero {
+    display: relative;
+    margin: 20px auto;
+    width: 100%;
+    height: auto;
+    max-width: 1360px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+
+.carrossel-container {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carrossel {
+    min-width: 100%;
+    transition: transform 1.5s;
+}
+
+.carrossel:hover {
+    transform: scale(1.02);
+}
+
+.carrossel img {
+  width: 100%;  
+  height: 100%;
+  object-fit: cover;
+  
+}
+
+button.prev, button.next {
+    position: absolute;
+    top: 60%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+button.prev {
+    left: 10px;
+  }
+  
+  button.next {
+    right: 10px;
+  }
+
+  .funcionalidades {
+    display: flex;
+    justify-content: space-around;
+    background-color: #f7e5a4;
+    padding: 10px 6%;
+    margin: 30px 0;
+  }
+  
+  .benefit {
+    display: flex;
+    align-items: center;
+  }
+  
+  
+  .benefit a {
+    margin: 10px;
+    font-size: 14px;
+    color: #000;
+    text-decoration: none;
+  }
+
+  
+  .benefit img {
+    cursor: pointer;
+  }
+
+
+  .carrossel-imagens {
+    display: flex;
+    padding: 30px 6%;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  .carrossel-imagens img {
+    transition: transform .5s;
+  }
+
+  .carrossel-imagens img:hover {
+    transform: scale(1.05);
+  }
+
+  .banner-oferta {
+    max-width: 1440px;
+    margin: 20px auto;
+    width: 100%;
+    height: auto;
+    cursor: pointer;
+    transition: transform 1.5s;
+  }
+
+  .banner-oferta:hover {
+    transform: scale(1.02);
+  }
+
+  footer {
+    background-color: #B2E5D6;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    padding: 30px 7% 10px 7%;
+    font-size: 1.2em;
+  }
+
+  .info span {
+    margin: 10px;
+  }
+
+  .copyright {
+    text-align: center;
+  }
+
+  
+@media screen and (max-width: 1534px) and (min-width:1280px){
+
+    .btn-abrir-menu{
+        display: none;
+    }
+
+     .menu-icons {
+        gap: 20px;
+    }
+
+    .search {
+        display: flex;
+        margin-right: 100px;
+    }
+
+    .hero {
+        max-width: 1220px;
+        
+    }
+
+    .banner-oferta {
+        max-width: 1220px;
+
+    }
+
+    .banner-oferta img {
+        width: 100%;
+    }
+    
+}
+
+@media screen and (max-width: 1280px) and (min-width: 480px){
+    .btn-abrir-menu{
+        display: block;
+    }
+
+    .btn-abrir-menu span {
+        font-size: 50px;
+    }
+
+    .menu-primario {
+        display: flex;
+        justify-content: space-between;
+        padding: 5px 4%;
+    }
+
+    .icons-mobile  {
+        gap: 20px;
+    }
+
+    .menu-secundario {
+        display: none;
+    }
+
+    .barra-anuncio {
+        margin-top: 125px;
+        
+    }
+
+    .barra-anuncio p {
+        margin-right: 20px;
+    }
+
+    .search, .tag-icons, .icon-suporte, #icon-person, #icon-bag, #icon-language  {
+        display: none;
+    }
+
+    .hero {
+        max-width: 720px;
+        margin-top: 10px;
+    }
+
+    button.prev, button.next {
+        top: 40%;
+    }
+
+    .carrossel-imagens {
+        flex-direction: column;
+    }
+    
+    .banner-oferta {
+        max-width: 720px;
+
+    }
+
+    .banner-oferta img {
+        width: 100%;
+    }
+
+    footer {
+        justify-content: center;
+        align-items: left;
+        font-size: 0.9em;
+    }
+    
+    .copyright {
+        margin-top: 20px;
+    }
+
+}
+
+@media screen and (max-width:480px) {
+    h2 {
+        font-size: 1.8em;
+    }
+    
+    .btn-abrir-menu{
+        display: block;
+    }
+
+    .btn-abrir-menu span {
+        font-size: 50px;
+    }
+
+    .menu-primario {
+        display: flex;
+        justify-content: space-between;
+        padding: 5px 4%;
+    }
+
+    .icons-mobile span {
+        font-size: 24px;
+    }
+
+    .icons-mobile  {
+        font-size: 0.8em;
+        gap: 10px;
+    }
+
+    .menu-secundario {
+        display: none;
+    }
+
+    .barra-anuncio {
+        margin-top: 125px 
+    }
+
+    .barra-anuncio p {
+        margin-right: 20px;
+    }
+
+    .search, .tag-icons, .icon-suporte, #icon-person, #icon-bag, #icon-language {
+        display: none;
+    }
+
+    .hero {
+        margin-top: 10px;
+        max-width: 340px;
+        
+    }
+
+    button.prev, button.next {
+        top: 35%;
+        padding: 0px;
+    }
+
+    button.prev {
+        left: 5px;
+    }
+      
+      button.next {
+        right: 5px;
+    }
+
+    .benefit {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    
+    .funcionalidades a  {
+        font-size: 0.5em;
+        text-align: center;
+       
+    }
+
+    .benefit img {
+        width: 20px;
+    }
+
+    .carrossel-imagens {
+        flex-direction: column;
+    }
+
+
+    .banner-oferta {
+        max-width: 340px;
+
+    }
+
+    .banner-oferta img {
+        width: 100%;
+    }
+
+    footer {
+        justify-content: center;
+        align-items: left;
+        font-size: 0.7em;
+        padding: 20px 3%;
+    }
+
+    
+    .info span {
+        font-size: 14px;
+       
+    }
+    
+    .copyright {
+        margin-top: 20px;
+    }
+
+    
+}
+
