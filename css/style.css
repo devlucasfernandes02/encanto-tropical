@@ -227,10 +227,6 @@ a:hover {
     }
 }
 
-.barra-anuncio {
-    animation: marquee 30s linear infinite; /* 15 segundos de animação contínua */
-  }
-
 .hero {
     display: relative;
     margin: 20px auto;
