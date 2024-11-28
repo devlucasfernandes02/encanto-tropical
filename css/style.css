@@ -314,11 +314,16 @@ button.prev {
   }
 
   .carrossel-imagens img {
+    
     transition: transform .5s;
   }
 
   .carrossel-imagens img:hover {
     transform: scale(1.05);
+  }
+
+  .img-borda {
+    border: 1px solid black;
   }
 
   .banner-oferta {
