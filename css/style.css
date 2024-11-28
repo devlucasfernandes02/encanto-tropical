@@ -228,7 +228,7 @@ a:hover {
 }
 
 .hero {
-    display: relative;
+    position: relative;
     margin: 20px auto;
     width: 100%;
     height: auto;
@@ -261,7 +261,7 @@ a:hover {
 
 button.prev, button.next {
     position: absolute;
-    top: 60%;
+    top: 50%;
     transform: translateY(-50%);
     background-color: rgba(0, 0, 0, 0.5);
     border: none;
@@ -320,10 +320,6 @@ button.prev {
 
   .carrossel-imagens img:hover {
     transform: scale(1.05);
-  }
-
-  .img-borda {
-    border: 1px solid black;
   }
 
   .banner-oferta {
@@ -429,10 +425,6 @@ button.prev {
         margin-top: 10px;
     }
 
-    button.prev, button.next {
-        top: 40%;
-    }
-
     .carrossel-imagens {
         flex-direction: column;
     }
@@ -509,7 +501,6 @@ button.prev {
     }
 
     button.prev, button.next {
-        top: 35%;
         padding: 0px;
     }
 
