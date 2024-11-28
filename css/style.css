@@ -352,6 +352,23 @@ button.prev {
     text-align: center;
   }
 
+  .btn-whatsapp {
+    position: fixed;
+    bottom: 14px;
+    right: 16px;
+    z-index: 99;
+  }
+
+  .btn-whatsapp img {
+    max-width: 55px;
+    transition: transform .8s;
+  }
+
+  .btn-whatsapp:hover {
+	transform: translate(-3px, -3px);
+	transition: transform .5s;
+}
+
   
 @media screen and (max-width: 1534px) and (min-width:1280px){
 
