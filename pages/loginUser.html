@@ -12,13 +12,18 @@
     <script src="https://unpkg.com/jwt-decode/build/jwt-decode.js"></script>
     <script>
         function handleCredentialResponse(response) {
-           const data= jwt_decode(response.credential)
-           console.log(data)
+          console.log("Encoded JWT ID token: " + response.credential);
+          // Decodifique o JWT (se necessário) para obter informações do usuário
+          const user = jwt_decode(response.credential);
+          console.log("Informações do usuário:", user);
+
+          // Redireciona para a página principal
+          window.location.href = "../index.html";
         }
         window.onload = function () {
           google.accounts.id.initialize({
-            client_id: "670159363378-as9ig7hdieolfcg9isgr3grmji605is1.apps.googleusercontent.com",
-            callback: "handleCredentialResponse"
+            client_id: "903188874611-ov7m05so67geif90rkrhj9um7ha9hptb.apps.googleusercontent.com",
+            callback: handleCredentialResponse
           });
           google.accounts.id.renderButton(
             document.getElementById("buttonDiv"),
@@ -66,7 +71,7 @@
                 <div id="successMsg" style="display: none;">Login realizado com sucesso! Redirecionando...</div>
                 <button type="submit">Login</button>
                 <p>OU</p>
-                <button type="submit">Entrar com o Google</button>
+                <div id="buttonDiv"></div>
                 <p>Ainda não possui conta? <a href="../pages/cadastro.html">Cadastre-se</a></p>
             </form>
         </section>
