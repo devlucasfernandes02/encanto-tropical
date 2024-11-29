@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <!DOCTYPE html>
+    <html lang="pt-br">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Carrinho de Compras</title>
+      <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+      <header>
+        <nav>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="produtos.html">Produtos</a></li>
+            <li><a href="carrinho.html" class="active">Carrinho</a></li>
+          </ul>
+        </nav>
+      </header>
+    
+      <main>
+        <section id="cart-container">
+          <h1>Carrinho de Compras</h1>
+          <ul id="cart-items">
+            <!-- Itens do carrinho serão renderizados aqui -->
+          </ul>
+          <p id="cart-total">Total: R$ 0.00</p>
+          <div class="cart-buttons">
+            <button onclick="clearCart()">Limpar Carrinho</button>
+            <button onclick="finalizePurchase()">Finalizar Compra</button>
+          </div>
+        </section>
+      </main>
+    
+      <footer>
+        <p>Encanto Tropical - Floricultura Online © 2024</p>
+      </footer>
+      <script src="js/scripts.js" defer></script>
+
+      
