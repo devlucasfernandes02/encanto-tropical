@@ -202,22 +202,6 @@ a:hover {
     font-size: 1.1em;
 }
 
-.barra-anuncio {
-    background-color: #fff;
-    width: 100%;
-    padding: 5px 5%;
-    display: flex;
-    overflow: hidden;
-    white-space: nowrap;
-    box-sizing: border-box;
-    justify-content: space-around;
-    font-size: 0.8em;
-}
-
-.barra-anuncio p {
-    cursor: pointer;
-}
-
 @keyframes marquee {
     0% {
         transform: translateX(100%) ;
@@ -300,11 +284,18 @@ button.prev {
     text-decoration: none;
   }
 
+  .benefit a:hover {
+    color: #000000c3;;
+  }
   
   .benefit img {
     cursor: pointer;
   }
 
+  #boas-vindas {
+    background-color: #fff;
+    margin: 10px 0;
+  }
 
   .carrossel-imagens {
     display: flex;
@@ -333,6 +324,24 @@ button.prev {
 
   .banner-oferta:hover {
     transform: scale(1.02);
+  }
+
+  .sobre-nos {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 6%;
+    max-width: 80%;
+    margin: 40px auto;
+    gap: 20px;
+    background-color: #d1ece4;
+    border-radius: 25px 0 25px 0;
+  }
+
+  .sobre-nos div {
+    text-align: center;
+    flex: 1;
   }
 
   footer {
@@ -560,6 +569,7 @@ button.prev {
     .hero {
         max-width: 1220px;
         
+        
     }
 
     .banner-oferta {
@@ -611,7 +621,7 @@ button.prev {
 
     .hero {
         max-width: 720px;
-        margin-top: 10px;
+        margin-top: 150px;
     }
 
     .carrossel-imagens {
@@ -641,7 +651,7 @@ button.prev {
 
 @media screen and (max-width:480px) {
     h2 {
-        font-size: 1.8em;
+        font-size: 1.6em;
     }
     
     .btn-abrir-menu{
@@ -684,7 +694,7 @@ button.prev {
     }
 
     .hero {
-        margin-top: 10px;
+        margin-top: 150px;
         max-width: 340px;
         
     }

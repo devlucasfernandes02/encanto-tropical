@@ -33,8 +33,8 @@
                             <li>
                                 <a href="" id="inicioMobile">Início</a>
                                 <a href="" id="produtosMobile">Produtos</a>
-                                <a href="" id="destaquesMobile">Destaques</a>
-                                <a href="" id="sobreMobile">Sobre nós</a>
+                                <a href="#destaques-container" id="destaquesMobile">Destaques</a>
+                                <a href="#sobre-nos" id="sobreMobile">Sobre nós</a>
                                 <a href="https://wa.me/5581991117787?text=Olá%2C%20gostaria%20de%20mais%20informações%21" target="_blank" id="contatoMobile">Contato</a>
                             </li>
                         </ul>
@@ -82,19 +82,11 @@
                    <li>
                        <a href="" id="inicio">Início</a>
                        <a href="" id="produtos">Produtos</a>
-                       <a href="" id="destaques">Destaques</a>
-                       <a href="" id="sobre">Sobre nós</a>
+                       <a href="#destaques-container" id="destaques">Destaques</a>
+                       <a href="#sobre-nos" id="sobre">Sobre nós</a>
                        <a href="https://wa.me/5581991117787?text=Olá%2C%20gostaria%20de%20mais%20informações%21" target="_blank" id="contato">Contato</a>
                    </li>
                </ul>
-            </div>
-            <div class="barra-anuncio">
-                <p>Barra de Anúncios</p>
-                <p>Barra de Anúncios</p>
-                <p>Barra de Anúncios</p>
-                <p>Barra de Anúncios</p>
-                <p>Barra de Anúncios</p>
-                <p>Barra de Anúncios</p>
             </div>
         </nav>
     </header>
@@ -111,6 +103,8 @@
             <button class="prev">&lt;</button>
             <button class="next">&gt;</button>
         </section>
+
+        <h2 id="boas-vindas">Seja bem-vindo a Encanto Tropical!</h2>
     
         <section class="funcionalidades">
             <article class="benefit">
@@ -133,6 +127,9 @@
               <a href="https://wa.me/5581991117787?text=Olá%2C%20gostaria%20de%20mais%20informações%21" target="_blank"  id="whats">Compre pelo Whatsapp</a>
             </article>
         </section>
+
+        </section>
+
         <section class="promocoes">
             <h2 id="promocoes">Promoções</h2>
             <div class="carrossel-imagens">
@@ -155,9 +152,9 @@
             </div>
         </section>
         
-        <section class="mais-vendidos">
-            <h2 id="vendidos">Mais Vendidos</h2>
-            <div class="carrossel-imagens">
+        <section class="destaques" id="destaques-container">
+            <h2 id="vendidos">Destaques</h2>
+            <div class="carrossel-imagens" >
                 <div>
                     <img src="assets/img/image-1.png" alt="Produto 1">
                     <button onclick="addToCart({ id: 1, name: 'Arranjo Doce Alegria', price: 240.90, quantity: 1 })">Adicionar ao Carrinho</button>
@@ -201,6 +198,20 @@
                 </div>
             </div>
         </section>
+
+        <section>
+            <h2 id="sobre-nos">Sobre Nós</h2>
+            <div class="sobre-nos">
+                <div>
+                    <p>Na Encanto Tropical, celebramos a beleza e a vitalidade das flores tropicais. Com compromisso com a qualidade e a sustentabilidade, trabalhamos para levar até você a exuberância da natureza em cada flor. Valorizamos o atendimento personalizado e acreditamos no poder das flores de transformar espaços e momentos em algo único e especial.
+
+                        Explore nosso catálogo e deixe-se encantar!</p>
+                    
+                </div>
+                <div>
+                    <p>Somos apaixonados por flores tropicais e pelo impacto que elas têm em transformar ambientes e emoções. Na Encanto Tropical, combinamos qualidade, cuidado e sustentabilidade para oferecer o melhor da natureza tropical. Nosso objetivo é levar beleza, cor e vida até você, com atendimento dedicado e flores únicas.</p>
+                </div>
+            </div>
         
     </main>
     
