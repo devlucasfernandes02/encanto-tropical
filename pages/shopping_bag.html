@@ -15,10 +15,11 @@
           <img src="../assets/img/logo.svg" width="250px" alt="Logo Encanto Tropical">
         </a>
       </div>
-    </nav>
-  </header>
+      <h1>Seu Carrinho</h1>
 
-  <main>
+<!-- Aqui os produtos serão listados -->
+<div id="cart-items"></div>
+<main>
     <section id="cart-container">
       <h1>Carrinho de Compras</h1>
       <!-- Lista dos itens no carrinho -->
@@ -26,13 +27,14 @@
         <!-- Itens do carrinho serão renderizados dinamicamente via JavaScript -->
       </ul>
       
-      <!-- Total da compra -->
+      <!-- Total da compra --> <!-- Exibição do total -->
       <p id="cart-total">Total: R$ 0.00</p>
+      <p id="total-price"></p>
       
       <!-- Botões de ação do carrinho -->
       <div class="cart-buttons">
-        <button id="clear-cart-btn">Limpar Carrinho</button>
-        <button id="finalize-purchase-btn">Finalizar Compra</button>
+        <button onclick="clearCart">Limpar Carrinho</button>
+        <button onclick="finalizePurchase()">Finalizar Compra</button>
       </div>
     </section>
   </main>

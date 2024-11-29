@@ -9,6 +9,7 @@ const sendChatBtn = document.querySelector(".chat-input span")
 const chatbox = document.querySelector(".chatbox")
 const chatbotToggler = document.querySelector(".chatbot-toggler")
 const chatbotCloseBtn = document.querySelector(".close-btn")
+const cart = JSON.parse(localStorage.getItem('cart')) || [];
 
 let currentCarrossel = 0;
 let userMessage;
@@ -112,75 +113,93 @@ chatbotToggler.addEventListener("click", () => document.body.classList.toggle("s
 
 sendChatBtn.addEventListener("click", handleChat);
 
-// Adiciona itens ao carrinho no localStorage
+f// Seleciona todos os botões "Adicionar ao Carrinho" usando querySelectorAll
+const addToCartButtons = document.querySelectorAll('.add-to-cart');
+
+// Adiciona o evento de clique para cada botão
+addToCartButtons.forEach(button => {
+  button.addEventListener('click', (event) => {
+    const productId = event.target.getAttribute('data-id');
+    const productName = event.target.getAttribute('data-name');
+    const productPrice = parseFloat(event.target.getAttribute('data-price'));
+
+    addToCart(productId, productName, productPrice);
+  });
+});
+
+// Função para adicionar produto ao carrinho
 function addToCart(id, name, price) {
-  const cart = JSON.parse(localStorage.getItem('cart')) || [];
-  const existingItem = cart.find(item => item.id === id);
+  const product = {
+    id: id,
+    name: name,
+    price: price,
+    quantity: 1
+  };
 
-  if (existingItem) {
-    existingItem.quantity += 1;
-  } else {
-    cart.push({ id, name, price, quantity: 1 });
-  }
-
-  localStorage.setItem('cart', JSON.stringify(cart));
-  updateCartUI();
-}
-
-// Remove item específico do carrinho
-function removeFromCart(id) {
+  // Recupera o carrinho do localStorage ou cria um novo carrinho
   let cart = JSON.parse(localStorage.getItem('cart')) || [];
-  cart = cart.filter(item => item.id !== id);
+
+  // Verifica se o produto já existe no carrinho
+  const existingProduct = cart.find(item => item.id === id);
+  if (existingProduct) {
+    existingProduct.quantity += 1; // Aumenta a quantidade do produto existente
+  } else {
+    cart.push(product); // Adiciona o novo produto
+  }
+
+  // Salva o carrinho atualizado no localStorage
   localStorage.setItem('cart', JSON.stringify(cart));
-  updateCartUI();
-}
 
-// Limpa todo o carrinho
-function clearCart() {
-  if (confirm('Tem certeza de que deseja limpar o carrinho?')) {
-    localStorage.removeItem('cart');
-    updateCartUI();
-  }
+  // Exibe uma mensagem ou realiza outra ação (opcional)
+  alert(`${name} foi adicionado ao carrinho.`);
 }
-
-// Finaliza a compra
-function finalizePurchase() {
-  if (confirm('Deseja realmente finalizar sua compra?')) {
-    alert('Compra finalizada com sucesso! Obrigado por comprar no Encanto Tropical.');
-    clearCart();
-    window.location.href = '../index.html'; // Redireciona para a página inicial
-  }
-}
-
-// Atualiza a interface do carrinho
-function updateCartUI() {
+// Função para renderizar os itens do carrinho
+function renderCart() {
+  // Recupera o carrinho do localStorage
   const cart = JSON.parse(localStorage.getItem('cart')) || [];
-  const cartList = document.getElementById('cart-items');
-  const cartTotal = document.getElementById('cart-total');
+  const cartContainer = document.querySelector('#cart-items');
+  const cartTotalElement = document.querySelector('#cart-total');
 
-  // Limpa a lista de itens do carrinho
-  cartList.innerHTML = '';
+  // Limpa o carrinho exibido antes de renderizar
+  cartContainer.innerHTML = '';  
 
   let total = 0;
 
+  // Renderiza cada item do carrinho
   cart.forEach(item => {
-    const li = document.createElement('li');
-    li.innerHTML = `
-      ${item.name} - R$ ${item.price.toFixed(2)} x ${item.quantity}
-      <button class="remove-item" onclick="removeFromCart(${item.id})">Remover</button>
+    const listItem = document.createElement('li');
+    listItem.innerHTML = `
+      <strong>${item.name}</strong> - R$ ${item.price.toFixed(2)} x ${item.quantity} = R$ ${(item.price * item.quantity).toFixed(2)}
     `;
-    cartList.appendChild(li);
+    cartContainer.appendChild(listItem);
+
     total += item.price * item.quantity;
   });
 
-  // Atualiza o total
-  cartTotal.textContent = `Total: R$ ${total.toFixed(2)}`;
-
-  // Exibe mensagem caso o carrinho esteja vazio
-  if (cart.length === 0) {
-    cartList.innerHTML = '<li>O carrinho está vazio.</li>';
-  }
+  // Exibe o total
+  cartTotalElement.innerHTML = `Total: R$ ${total.toFixed(2)}`;
 }
 
-// Inicializa o carrinho ao carregar a página
-document.addEventListener('DOMContentLoaded', updateCartUI);
+// Função para limpar o carrinho
+function clearCart() {
+  localStorage.removeItem('cart');
+  renderCart();  // Re-renderiza o carrinho após limpeza
+}
+
+// Função para finalizar a compra
+function finalizePurchase() {
+  alert('Compra finalizada com sucesso!');
+  clearCart();
+}
+
+// Seleciona os botões de limpar carrinho e finalizar compra
+const clearCartButton = document.querySelector('#clear-cart');
+const finalizeButton = document.querySelector('#finalize-purchase');
+
+// Adiciona os event listeners aos botões
+clearCartButton.addEventListener('click', clearCart);
+finalizeButton.addEventListener('click', finalizePurchase);
+
+// Chama a função para renderizar o carrinho na inicialização
+renderCart();
+

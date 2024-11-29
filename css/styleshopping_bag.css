@@ -1,0 +1,117 @@
+/* Reset básico */
+body, h1, ul, p, button {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Estilização geral */
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    line-height: 1.6;
+  }
+  
+  /* Cabeçalho */
+  header {
+    background-color: #58b89d;
+    padding: 10px 20px;
+    text-align: center;
+  }
+  
+  header .logo img {
+    max-width: 250px;
+  }
+  
+  /* Contêiner principal */
+  main {
+    max-width: 800px;
+    margin: 20px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #58b89d;
+    text-align: center;
+  }
+  
+  /* Lista do carrinho */
+  #cart-items {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+  }
+  
+  #cart-items li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  #cart-items li:last-child {
+    border-bottom: none;
+  }
+  
+  .remove-item {
+    background: #e74c3c;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .remove-item:hover {
+    background: #c0392b;
+  }
+  
+  /* Total do carrinho */
+  #cart-total {
+    font-size: 20px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-align: right;
+  }
+  
+  /* Botões do carrinho */
+  .cart-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .cart-buttons button {
+    background: #58b89d;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .cart-buttons button:hover {
+    background: #46a085;
+  }
+  
+  /* Rodapé */
+  footer {
+    text-align: center;
+    padding: 10px 0;
+    background-color: #333;
+    color: #fff;
+    margin-top: 20px;
+  }
+  
+  footer p {
+    font-size: 14px;
+  }
+  
