@@ -4,40 +4,89 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Carrinho de Compras</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styleshopping_bag.css">
   <script src="js/scripts.js" defer></script>
 </head>
 <body>
   <header>
     <nav class="menu">
-        <div class="logo">
-            <a href="../index.html" rel="prev">
-                <img src="../assets/img/logo.svg" width="450px" alt="Logo Encanto Tropical">
-            </a>
-        </div>
+      <div class="logo">
+        <a href="../index.html" rel="prev">
+          <img src="../assets/img/logo.svg" width="250px" alt="Logo Encanto Tropical">
+        </a>
+      </div>
     </nav>
-</header>
+  </header>
 
   <main>
     <section id="cart-container">
       <h1>Carrinho de Compras</h1>
+      <!-- Lista dos itens no carrinho -->
       <ul id="cart-items">
-        <!-- Itens do carrinho serão renderizados aqui -->
+        <!-- Itens do carrinho serão renderizados dinamicamente via JavaScript -->
       </ul>
+      
+      <!-- Total da compra -->
       <p id="cart-total">Total: R$ 0.00</p>
+      
+      <!-- Botões de ação do carrinho -->
       <div class="cart-buttons">
-        <button onclick="clearCart()">Limpar Carrinho</button>
-        <button onclick="finalizePurchase()">Finalizar Compra</button>
-      </div> 
-      <section> encantotropical/finalizar-compra/?add-to-cart=<codigo-do-produto></codigo-do-produto>
+        <button id="clear-cart-btn">Limpar Carrinho</button>
+        <button id="finalize-purchase-btn">Finalizar Compra</button>
+      </div>
     </section>
   </main>
 
   <footer>
-    <p class="info"><span class="material-symbols-outlined">location_on</span>Rua Encanto das Flores, número 1, Bairro Aldeia, Recife - PE</p>
-    <p class="info"><span class="material-symbols-outlined">mail</span>encantotropical@flores.com.br</p>
-    <p class="info"><span class="material-symbols-outlined">call</span>3912-7777/991823-7645</p>
     <p class="copyright">Copyright Encanto Tropical - 12345678000190 2024 &copy; Todos os direitos reservados.</p>
-</footer>  
+  </footer>
+
+  <script>
+    // Corrigir rota de finalizar compra
+    function finalizePurchase() {
+      if (confirm('Deseja realmente finalizar sua compra?')) {
+        // Exemplo de rota de checkout, pode ser ajustada conforme necessário
+        window.location.href = "../finalizar-compra/index.html";
+      }
+    }
+
+    // Limpar o carrinho de compras
+    function clearCart() {
+      if (confirm('Tem certeza de que deseja limpar o carrinho?')) {
+        localStorage.removeItem('cart');
+        updateCartUI(); // Atualiza a interface para exibir o carrinho vazio
+      }
+    }
+
+    // Atualizar o carrinho dinamicamente (exemplo simplificado)
+    function updateCartUI() {
+      const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+      const cartList = document.getElementById('cart-items');
+      const cartTotal = document.getElementById('cart-total');
+      
+      // Limpa a lista atual
+      cartList.innerHTML = '';
+
+      let total = 0;
+
+      // Renderiza os itens do carrinho
+      cartItems.forEach(item => {
+        const li = document.createElement('li');
+        li.textContent = `${item.name} - R$ ${item.price.toFixed(2)} x ${item.quantity}`;
+        cartList.appendChild(li);
+        total += item.price * item.quantity;
+      });
+
+      // Atualiza o total
+      cartTotal.textContent = `Total: R$ ${total.toFixed(2)}`;
+    }
+
+    // Inicializa o carrinho ao carregar a página
+    document.addEventListener('DOMContentLoaded', updateCartUI);
+
+    // Adiciona eventos aos botões
+    document.getElementById('clear-cart-btn').addEventListener('click', clearCart);
+    document.getElementById('finalize-purchase-btn').addEventListener('click', finalizePurchase);
+  </script>
 </body>
 </html>
