@@ -113,93 +113,54 @@ chatbotToggler.addEventListener("click", () => document.body.classList.toggle("s
 
 sendChatBtn.addEventListener("click", handleChat);
 
-f// Seleciona todos os botões "Adicionar ao Carrinho" usando querySelectorAll
-const addToCartButtons = document.querySelectorAll('.add-to-cart');
+function addToCart(name, price) {
+  const product = {name, price, quantity: 1 };
 
-// Adiciona o evento de clique para cada botão
-addToCartButtons.forEach(button => {
-  button.addEventListener('click', (event) => {
-    const productId = event.target.getAttribute('data-id');
-    const productName = event.target.getAttribute('data-name');
-    const productPrice = parseFloat(event.target.getAttribute('data-price'));
-
-    addToCart(productId, productName, productPrice);
-  });
-});
-
-// Função para adicionar produto ao carrinho
-function addToCart(id, name, price) {
-  const product = {
-    id: id,
-    name: name,
-    price: price,
-    quantity: 1
-  };
-
-  // Recupera o carrinho do localStorage ou cria um novo carrinho
+  // Recuperar o carrinho do localStorage
   let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  console.log("Carrinho antes:", cart);
 
-  // Verifica se o produto já existe no carrinho
+  // Adicionar ou atualizar o produto no carrinho
   const existingProduct = cart.find(item => item.id === id);
   if (existingProduct) {
-    existingProduct.quantity += 1; // Aumenta a quantidade do produto existente
+    existingProduct.quantity += 1;
   } else {
-    cart.push(product); // Adiciona o novo produto
+    cart.push(product);
   }
 
-  // Salva o carrinho atualizado no localStorage
+  // Salvar o carrinho no localStorage
   localStorage.setItem('cart', JSON.stringify(cart));
+  console.log("Carrinho atualizado:", cart);
 
   // Exibe uma mensagem ou realiza outra ação (opcional)
-  alert(`${name} foi adicionado ao carrinho.`);
+  alert(`Seu produto foi adicionado ao carrinho com sucesso!`);
 }
-// Função para renderizar os itens do carrinho
+// Função para carregar o carrinho na página do carrinho
 function renderCart() {
-  // Recupera o carrinho do localStorage
+  // Pegar o carrinho do localStorage
   const cart = JSON.parse(localStorage.getItem('cart')) || [];
-  const cartContainer = document.querySelector('#cart-items');
-  const cartTotalElement = document.querySelector('#cart-total');
+  console.log("Carrinho carregado:", cart);
 
-  // Limpa o carrinho exibido antes de renderizar
-  cartContainer.innerHTML = '';  
+  const cartContainer = document.getElementById('cart-container');
+  cartContainer.innerHTML = ''; // Limpar o container
 
-  let total = 0;
+  if (cart.length === 0) {
+    cartContainer.innerHTML = '<p>O carrinho está vazio.</p>';
+    return;
+  }
 
-  // Renderiza cada item do carrinho
+  // Exibir os produtos no carrinho
   cart.forEach(item => {
-    const listItem = document.createElement('li');
-    listItem.innerHTML = `
-      <strong>${item.name}</strong> - R$ ${item.price.toFixed(2)} x ${item.quantity} = R$ ${(item.price * item.quantity).toFixed(2)}
+    const productDiv = document.createElement('div');
+    productDiv.className = 'cart-item';
+    productDiv.innerHTML = `
+      <h3>${item.name}</h3>
+      <p>Preço: R$ ${item.price.toFixed(2)}</p>
+      <p>Quantidade: ${item.quantity}</p>
     `;
-    cartContainer.appendChild(listItem);
-
-    total += item.price * item.quantity;
+    cartContainer.appendChild(productDiv);
   });
-
-  // Exibe o total
-  cartTotalElement.innerHTML = `Total: R$ ${total.toFixed(2)}`;
 }
 
-// Função para limpar o carrinho
-function clearCart() {
-  localStorage.removeItem('cart');
-  renderCart();  // Re-renderiza o carrinho após limpeza
-}
-
-// Função para finalizar a compra
-function finalizePurchase() {
-  alert('Compra finalizada com sucesso!');
-  clearCart();
-}
-
-// Seleciona os botões de limpar carrinho e finalizar compra
-const clearCartButton = document.querySelector('#clear-cart');
-const finalizeButton = document.querySelector('#finalize-purchase');
-
-// Adiciona os event listeners aos botões
-clearCartButton.addEventListener('click', clearCart);
-finalizeButton.addEventListener('click', finalizePurchase);
-
-// Chama a função para renderizar o carrinho na inicialização
-renderCart();
-
+// Chamar renderCart ao carregar a página do carrinho
+document.addEventListener('DOMContentLoaded', renderCart);
