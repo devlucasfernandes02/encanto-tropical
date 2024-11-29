@@ -774,5 +774,33 @@ button.prev {
         display: block;
     }
 
-    
+}/* Botões de Adicionar ao Carrinho */
+.button-add-cart {
+    background-color: #4CAF50; /* Cor de fundo verde */
+    color: white; /* Texto branco */
+    border: none; /* Sem borda */
+    padding: 10px 20px; /* Espaçamento interno */
+    text-align: center; /* Centralizar texto */
+    text-decoration: none; /* Sem sublinhado */
+    display: inline-block; /* Estilo inline */
+    font-size: 16px; /* Tamanho da fonte */
+    margin: 10px 5px; /* Margens para espaçamento */
+    cursor: pointer; /* Cursor em formato de mão */
+    border-radius: 5px; /* Borda arredondada */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Animações */
+}
+
+/* Efeito ao passar o mouse */
+.button-add-cart:hover {
+    background-color: #45a049; /* Tom mais escuro de verde */
+    transform: scale(1.05); /* Leve aumento no tamanho */
+}
+
+/* Botões para dispositivos móveis */
+@media (max-width: 768px) {
+    .button-add-cart {
+        width: 100%; /* Ocupa toda a largura disponível */
+        padding: 15px; /* Maior espaçamento interno */
+        font-size: 18px; /* Texto maior */
+    }
 }
