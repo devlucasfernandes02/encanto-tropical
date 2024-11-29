@@ -391,6 +391,11 @@ button.prev {
     transition: all 0.2s ease;
 }
 
+.chatbot-toggler:hover {
+    transform: translate(-3px, -3px);
+	transition: transform .5s;
+}
+
 .show-chatbot .chatbot-toggler {
     transform: rotate(90deg);
 }
