@@ -1,41 +1,43 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-    <!DOCTYPE html>
-    <html lang="pt-br">
-    <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Carrinho de Compras</title>
-      <link rel="stylesheet" href="styles.css">
-    </head>
-    <body>
-      <header>
-        <nav>
-          <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="produtos.html">Produtos</a></li>
-            <li><a href="carrinho.html" class="active">Carrinho</a></li>
-          </ul>
-        </nav>
-      </header>
-    
-      <main>
-        <section id="cart-container">
-          <h1>Carrinho de Compras</h1>
-          <ul id="cart-items">
-            <!-- Itens do carrinho serão renderizados aqui -->
-          </ul>
-          <p id="cart-total">Total: R$ 0.00</p>
-          <div class="cart-buttons">
-            <button onclick="clearCart()">Limpar Carrinho</button>
-            <button onclick="finalizePurchase()">Finalizar Compra</button>
-          </div>
-        </section>
-      </main>
-    
-      <footer>
-        <p>Encanto Tropical - Floricultura Online © 2024</p>
-      </footer>
-      <script src="js/scripts.js" defer></script>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carrinho de Compras</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="js/scripts.js" defer></script>
+</head>
+<body>
+  <header>
+    <nav class="menu">
+        <div class="logo">
+            <a href="../index.html" rel="prev">
+                <img src="../assets/img/logo.svg" width="450px" alt="Logo Encanto Tropical">
+            </a>
+        </div>
+    </nav>
+</header>
 
-      
+  <main>
+    <section id="cart-container">
+      <h1>Carrinho de Compras</h1>
+      <ul id="cart-items">
+        <!-- Itens do carrinho serão renderizados aqui -->
+      </ul>
+      <p id="cart-total">Total: R$ 0.00</p>
+      <div class="cart-buttons">
+        <button onclick="clearCart()">Limpar Carrinho</button>
+        <button onclick="finalizePurchase()">Finalizar Compra</button>
+      </div> 
+      <section> encantotropical/finalizar-compra/?add-to-cart=<codigo-do-produto></codigo-do-produto>
+    </section>
+  </main>
+
+  <footer>
+    <p class="info"><span class="material-symbols-outlined">location_on</span>Rua Encanto das Flores, número 1, Bairro Aldeia, Recife - PE</p>
+    <p class="info"><span class="material-symbols-outlined">mail</span>encantotropical@flores.com.br</p>
+    <p class="info"><span class="material-symbols-outlined">call</span>3912-7777/991823-7645</p>
+    <p class="copyright">Copyright Encanto Tropical - 12345678000190 2024 &copy; Todos os direitos reservados.</p>
+</footer>  
+</body>
+</html>
