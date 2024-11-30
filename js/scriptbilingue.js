@@ -23,7 +23,8 @@ const translations = {
     direitos: "Copyright Tropical Charm - 12345678000190 2024 © All rights reserved.",
     sobrenos1: "At Encanto Tropical, we celebrate the beauty and vitality of tropical flowers. With a commitment to quality and sustainability, we work to bring you the exuberance of nature in each flower. We value personalized service and believe in the power of flowers to transform spaces and moments into something unique and special. Explore our catalog and let yourself be enchanted!",
     sobrenos2: "We are passionate about tropical flowers and the impact they have on transforming environments and emotions. At Encanto Tropical, we combine quality, care and sustainability to offer the best of tropical nature. Our goal is to bring beauty, color and life to you, with dedicated service and unique flowers.",
-    sobrenos0: "About Us"
+    sobrenos0: "About Us",
+    boasvindas: "Welcome to Encanto Tropical!"
   },
   pt: {
     inicio: "Início",
@@ -49,7 +50,8 @@ const translations = {
     direitos: "Copyright Encanto Tropical - 12345678000190 2024 © Todos os direitos reservados.",
     sobrenos1: "Na Encanto Tropical, celebramos a beleza e a vitalidade das flores tropicais. Com compromisso com a qualidade e a sustentabilidade, trabalhamos para levar até você a exuberância da natureza em cada flor. Valorizamos o atendimento personalizado e acreditamos no poder das flores de transformar espaços e momentos em algo único e especial. Explore nosso catálogo e deixe-se encantar!",
     sobrenos2: "Somos apaixonados por flores tropicais e pelo impacto que elas têm em transformar ambientes e emoções. Na Encanto Tropical, combinamos qualidade, cuidado e sustentabilidade para oferecer o melhor da natureza tropical. Nosso objetivo é levar beleza, cor e vida até você, com atendimento dedicado e flores únicas.",
-    sobrenos0: "Sobre Nós"
+    sobrenos0: "Sobre Nós",
+    boasvindas: "Seja Bem-vindo a Encantro Tropical!"
   }
 };
 
